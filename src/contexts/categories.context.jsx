@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import SHOP_DATA from "../shop-data";
 import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 export const CategoriesContext = createContext({
@@ -12,8 +11,7 @@ export const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      console.log(categoryMap);
-      setCategoriesMap(categoryMap)
+      setCategoriesMap(categoryMap);
     };
 
     getCategoriesMap();
