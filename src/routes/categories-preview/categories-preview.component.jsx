@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { Fragment } from "react";
 
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
