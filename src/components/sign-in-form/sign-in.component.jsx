@@ -6,44 +6,42 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 
 import './sign-in-form.styles.scss';
-import { useDispatch } from 'react-redux';
-import { emailSignInStart, googleSignInStart } from '../../store/user/user.action';
-
-const defaultFormFields = {
-  email: '',
-  password: '',
-};
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 
 
-const SignInForm = () => {
-  const dispatch = useDispatch()
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
-
-  const resetFormFields = () => {
-    setFormFields(defaultFormFields);
+  const defaultFormFields = {
+    email: '',
+    password: '',
   };
-
-  const signInWithGoogle = async () => {
-    dispatch(googleSignInStart())
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      dispatch(emailSignInStart(email, password))
-      resetFormFields();
-    } catch (error) {
-      console.log('user sign in failed', error);
-    }
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormFields({ ...formFields, [name]: value });
-  };
+  
+  const SignInForm = () => {
+    const [formFields, setFormFields] = useState(defaultFormFields);
+    const { email, password } = formFields;
+  
+    const resetFormFields = () => {
+      setFormFields(defaultFormFields);
+    };
+  
+    const signInWithGoogle = async () => {
+      await signInWithGooglePopup();
+    };
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      try {
+        await signInAuthUserWithEmailAndPassword(email, password);
+        resetFormFields();
+      } catch (error) {
+        console.log('user sign in failed', error);
+      }
+    };
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormFields({ ...formFields, [name]: value });
+    };
 
   return (
     <div className='sign-in-container'>
