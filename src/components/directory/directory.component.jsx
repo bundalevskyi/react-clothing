@@ -1,48 +1,55 @@
-import React from "react";
-import DirectoryItem from "../directory-item/directory-item-component";
-import "./directory.styles.jsx";
-import { DirectoryContainer } from "./directory.styles.jsx";
-
-const categories = [
-  {
-    id: 1,
-    title: "hats",
-    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    route: "shop/hats",
-  },
-  {
-    id: 2,
-    title: "jackets",
-    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    route: "shop/jackets",
-  },
-  {
-    id: 3,
-    title: "sneakers",
-    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    route: "shop/sneakers",
-  },
-  {
-    id: 4,
-    title: "womens",
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    route: "shop/womens",
-  },
-  {
-    id: 5,
-    title: "mens",
-    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    route: "shop/mens",
-  },
-];
+import { Link } from "react-router-dom";
+import MainHeader from "../../routes/navigation/MainHeader.jsx/MainHeader.component";
+import "./directory.styles.scss";
+import { useState } from "react";
+import Spinner from "../spinner/spinner.component";
 
 const Directory = () => {
+  const [isLoading, setIsLoading] = useState(false);
   return (
-    <DirectoryContainer>
-      {categories.map((category) => (
-        <DirectoryItem key={category.id} category={category} />
-      ))}
-    </DirectoryContainer>
+    <div className='container'>
+      <MainHeader />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className='parallax-wrapper'>
+          <div className='main-banners'>
+            <div className='banner'>
+              <Link className='box-result' to={"shop/street"}>
+                <div className='banner-sneakers exponea--banner'></div>
+                <div className='banner-header-wrapper'>
+                  <h2 className='banner-header'>Sneakers </h2>
+                </div>
+              </Link>
+            </div>
+            <div className='banner'>
+              <Link className='box-result' to={"shop/street"}>
+                <div className='banner-streetwear exponea--banner'></div>
+                <div className='banner-header-wrapper'>
+                  <h2 className='banner-header'>Streetwear </h2>
+                </div>
+              </Link>
+            </div>
+            <div className='banner'>
+              <Link className='box-result' to={"shop/skateboard"}>
+                <div className='banner-skateboard exponea--banner'></div>
+                <div className='banner-header-wrapper'>
+                  <h2 className='banner-header'>Skateboard </h2>
+                </div>
+              </Link>
+            </div>
+            <div className='banner'>
+              <Link className='box-result' to={"shop/hiking"}>
+                <div className='banner-snowboard exponea--banner'></div>
+                <div className='banner-header-wrapper'>
+                  <h2 className='banner-header'>Hiking</h2>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

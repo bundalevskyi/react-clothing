@@ -1,0 +1,54 @@
+.cart-dropdown-container {
+  position: absolute;
+  width: 350px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #E0E6EB;
+  top: 54px;
+  right: 60px;
+  transform: translateX(470px);
+  transition: transform 0.3s ease;
+
+  .empty-message {
+    font-size: 18px;
+    margin: 50px auto;
+  }
+
+  .cart-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+  }
+
+  button {
+    margin-top: auto;
+  }
+}
+
+
+.cart-dropdown-container.open{
+  transform: translateX(120px);
+  z-index: 100;
+  position: absolute;
+}
+
+.overlay{
+  position: fixed;
+  background-color: rgba(0, 0, 0, .6);
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.overlay.open{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 80px;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 3;
+}

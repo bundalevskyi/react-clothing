@@ -9,10 +9,7 @@ const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
 
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems)
-
-
-
+  const cartItems = useSelector(selectCartItems);
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
@@ -20,14 +17,19 @@ const ProductCard = ({ product }) => {
     <div className='product-card-container'>
       <img src={imageUrl} alt={`${name}`} />
       <div className='footer'>
-        <span className='name'>{name}</span>
-        <span className='price'>{price}</span>
+        <div className='descr'>
+          <div className='name'>{name}</div>
+          <div className='price'>{price} $</div>
+        </div>
+        <div className="bag">
+          <div className='sizes'>
+            <button className='size'>41 EU</button>
+            <button className='size'>43 EU</button>
+
+          </div>
+          <button className='add' onClick={addProductToCart}>Add to cart</button>
+        </div>
       </div>
-      <Button
-        buttonType={BUTTON_TYPE_CLASSES.inverted}
-        onClick={addProductToCart}>
-        Add to card
-      </Button>
     </div>
   );
 };

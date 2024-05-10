@@ -1,8 +1,10 @@
 .category-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
-  row-gap: 50px;
+  row-gap: 30px;
+  margin: 60px 0 30px;
+
+
 
   .category-title {
     font-size: 38px;

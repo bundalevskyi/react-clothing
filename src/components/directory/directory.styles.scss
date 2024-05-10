@@ -1,0 +1,143 @@
+.parallax-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 3;
+    overflow: hidden;
+  }
+  
+  .main-banners {
+    transform: translateY(0px);
+    height: 100%;
+    width: 100%;
+    padding-top: 0;
+    display: flex;
+    position: static;
+    top: 0;
+    left: 0;
+  }
+  
+  .banner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .banner .box-result {
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner-skateboard,
+  .banner-sneakers,
+  .banner-snowboard,
+  .banner-streetwear {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.07);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    background-size: cover;
+    background-position: 25% 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .banner-sneakers {
+    background-color: #9b9b9b;
+    background-image: url(../../assets/sneakers-desktop.jpeg);
+  }
+  
+  @media (min-width: 1240px) {
+    .banner-sneakers {
+      background-image: url(../../assets/sneakers-desktop.jpeg);
+      background-position: 45% 100%;
+    }
+  }
+  
+  .banner-streetwear {
+    background-color: #9b9b9b;
+    background-image: url(../../assets/streetwear-desktop.jpg);
+  }
+  
+  @media (min-width: 1240px) {
+    .banner-streetwear {
+      background-image: url(../../assets/streetwear-desktop.jpg);
+      background-position: 45% 100%;
+    }
+  }
+  
+  .banner-skateboard {
+    background-color: #9b9b9b;
+    background-image: url(../../assets/skateboard-desktop.jpg);
+  }
+  
+  @media (min-width: 1240px) {
+    .banner-skateboard {
+      background-image: url(../../assets/skateboard-desktop.jpg);
+      background-position: 45% 100%;
+    }
+  }
+  
+  .banner-snowboard {
+    background-color: #9b9b9b;
+    background-image: url(../../assets/snowboarding.jpg);
+  }
+  
+  @media (min-width: 1240px) {
+    .banner-snowboard {
+      background-image: url(../../assets/snowboarding.jpg);
+      background-position: 45% 100%;
+    }
+  }
+  
+  @media (min-width: 1240px) {
+    .box-result {
+      min-height: 253px;
+      min-width: 190px;
+    }
+  }
+  
+  @media (min-width: 1240px) {
+    .banner {
+      width: 25%;
+    }
+  }
+  
+  .banner .box-result:hover .banner-skateboard,
+  .banner .box-result:hover .banner-sneakers,
+  .banner .box-result:hover .banner-snowboard,
+  .banner .box-result:hover .banner-streetwear {
+    transform: scale(1);
+    filter: brightness(0.76);
+  }
+  
+  .banner-header-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    transform: perspective(1px) translateZ(0);
+    transform-origin: 0 50%;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    padding-left: 10px;
+    left: 20px;
+  }
+  
+  .banner-header {
+    font-size: 50px;
+    color: #fff;
+    font-weight: 600;
+    transition: font-size 0.5s ease;
+    letter-spacing: 1px;
+  }
+  
+  .banner .box-result:hover .banner-header-wrapper {
+    transform: scale(1.1);
+  }
+  
