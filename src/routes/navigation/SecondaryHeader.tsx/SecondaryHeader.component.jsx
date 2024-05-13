@@ -4,16 +4,14 @@ import CartDropdown from "../../../components/cart-dropdown/cart-dropdown.compon
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
 import { selectIsCartOpen } from "../../../store/cart/cart.selector";
-import { signOutStart } from "../../../store/user/user.action";
 import "./secondaryHeader.styles.scss";
 import { useState } from "react";
+import { signOutUser } from "../../../utils/firebase/firebase.utils";
 
 const SecondaryHeader = ({ variant }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const signOutUser = () => dispatch(signOutStart());
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);

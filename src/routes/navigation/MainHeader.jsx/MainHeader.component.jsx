@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
 import CartIcon from "../../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../../components/cart-dropdown/cart-dropdown.component";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
-import { signOutStart } from "../../../store/user/user.action";
 import "./mainHeader.styles.scss";
 import { useState } from "react";
+import { signOutUser } from "../../../utils/firebase/firebase.utils";
 
 const MainHeader = ({ variant }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const signOutUser = () => dispatch(signOutStart());
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);

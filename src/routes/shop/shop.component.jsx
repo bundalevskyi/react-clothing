@@ -3,33 +3,32 @@ import CategoriesPreview from "../preview/preview.component";
 import Category from "../category/category.component";
 import "./shop.styles.scss";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCategoriesStart } from "../../store/categories/category.action";
+import { useDispatch } from "react-redux";
 import SecondaryHeader from "../navigation/SecondaryHeader.tsx/SecondaryHeader.component";
-import Spinner from "../../components/spinner/spinner.component";
-import { selectIsLoading } from "../../store/categories/category.selector";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+import { setCategories } from "../../store/categories/category.reducer";
 
 const Shop = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    dispatch(fetchCategoriesStart());
-  }, [dispatch]);
+    const getCategoriesMap = async () => {
+      const categoriesArray = await getCategoriesAndDocuments('categories');
+      dispatch(setCategories(categoriesArray));
+    };
+
+    getCategoriesMap();
+  }, []);
 
   return (
     <>
       <SecondaryHeader />
-      {isLoading ? (
-        <Spinner />
-      ) : (
         <div className='shopContainer'>
           <Routes>
             <Route index element={<CategoriesPreview />} />
             <Route path=':category' element={<Category />} />
           </Routes>
         </div>
-      )}
     </>
   );
 };

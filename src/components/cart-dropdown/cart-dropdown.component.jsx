@@ -12,9 +12,12 @@ const CartDropdown = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
   const handleLink = () => {
-    navigate("/chekout");
+    navigate("/checkout");
   };
 
+
+
+  
   return (
     <>
       <div
