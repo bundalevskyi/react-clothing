@@ -6,6 +6,7 @@ import { selectCurrentUser } from "../../../store/user/user.selector";
 import "./mainHeader.styles.scss";
 import { useState } from "react";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
+import MainLogo from "../../../assets/MainLogo";
 
 const MainHeader = ({ variant }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ const MainHeader = ({ variant }) => {
     <div className={`header ${isMenuOpen ? "active" : "header"}`}>
       <div className='header-wrapper'>
         <Link to={"/"} className='logo'>
-          LOGO
+          <MainLogo />
         </Link>
         <div className='nav-links'>
           <Link to={"/shop"} className='nav-link'>
