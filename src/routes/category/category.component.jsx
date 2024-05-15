@@ -13,13 +13,6 @@ import {
 
 
 
-
-
-
-
-
-
-
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);

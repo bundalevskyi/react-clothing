@@ -13,7 +13,7 @@ const Shop = () => {
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories');
+      const categoriesArray = await getCategoriesAndDocuments("categories");
       dispatch(setCategories(categoriesArray));
     };
 
@@ -23,12 +23,12 @@ const Shop = () => {
   return (
     <>
       <SecondaryHeader />
-        <div className='shopContainer'>
-          <Routes>
-            <Route index element={<CategoriesPreview />} />
-            <Route path=':category' element={<Category />} />
-          </Routes>
-        </div>
+      <div className='shopContainer'>
+        <Routes>
+          <Route index element={<CategoriesPreview />} />
+          <Route path=':category' element={<Category />} />
+        </Routes>
+      </div>
     </>
   );
 };
