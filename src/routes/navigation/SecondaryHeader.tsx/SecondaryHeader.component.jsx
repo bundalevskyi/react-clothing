@@ -7,6 +7,7 @@ import { selectIsCartOpen } from "../../../store/cart/cart.selector";
 import "./secondaryHeader.styles.scss";
 import { useState } from "react";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
+import MainLogo from "../../../assets/MainLogo";
 
 const SecondaryHeader = ({ variant }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,9 @@ const SecondaryHeader = ({ variant }) => {
   return (
     <div className={`headerBlack ${isMenuOpen ? "active" : "headerBlack"}`}>
       <div className='header-wrapperBlack '>
-      <Link to={'/'} className='logo'>LOGO</Link>
+        <Link to={"/"} className='logo'>
+          <MainLogo />
+        </Link>
         <div className='nav-links'>
           <Link to={"/shop"} className='nav-link'>
             SHOP
